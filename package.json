@@ -1,13 +1,32 @@
 {
-  "name": "php-formatter",
+  "name": "php-pint-formatter",
   "displayName": "PHP Formatter (Laravel Pint)",
   "description": "Format PHP files using Laravel Pint with support for multiple projects",
   "version": "0.0.1",
+  "publisher": "victorcesae",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/php-pint-formatter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/php-pint-formatter/issues"
+  },
+  "homepage": "https://github.com/your-username/php-pint-formatter#readme",
+  "license": "MIT",
   "engines": {
-    "vscode": "^1.103.0"
+    "vscode": "^1.74.0"
   },
   "categories": [
     "Formatters"
+  ],
+  "keywords": [
+    "php",
+    "formatter",
+    "laravel",
+    "pint",
+    "code-style",
+    "beautify"
   ],
   "activationEvents": [
     "onLanguage:php"
@@ -91,7 +110,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.103.0",
+    "@types/vscode": "^1.74.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
     "@typescript-eslint/eslint-plugin": "^8.42.0",

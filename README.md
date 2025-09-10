@@ -139,6 +139,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This extension is released under the [MIT License](LICENSE).
 
+> **Note**: When publishing to the marketplace, update the repository URLs in `package.json` to point to your actual GitHub repository.
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for a list of changes.
