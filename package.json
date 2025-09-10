@@ -41,11 +41,6 @@
           "default": true,
           "description": "Enable/disable PHP formatter"
         },
-        "phpFormatter.formatOnSave": {
-          "type": "boolean",
-          "default": true,
-          "description": "Format PHP files on save"
-        },
         "phpFormatter.formatOnType": {
           "type": "boolean",
           "default": false,

@@ -11,7 +11,6 @@ let pintPathCache: PintCache = {};
 
 interface PintConfig {
 	enabled: boolean;
-	formatOnSave: boolean;
 	formatOnType: boolean;
 	formatOnPaste: boolean;
 	timeout: number;
@@ -24,7 +23,6 @@ function getConfiguration(): PintConfig {
 	const config = vscode.workspace.getConfiguration('phpFormatter');
 	return {
 		enabled: config.get<boolean>('enabled', true),
-		formatOnSave: config.get<boolean>('formatOnSave', true),
 		formatOnType: config.get<boolean>('formatOnType', false),
 		formatOnPaste: config.get<boolean>('formatOnPaste', false),
 		timeout: config.get<number>('timeout', 30000)
@@ -296,31 +294,6 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	}
 
-	// Handle format on save if enabled
-	if (config.formatOnSave) {
-		context.subscriptions.push(
-			vscode.workspace.onWillSaveTextDocument(async (event) => {
-				if (event.document.languageId === 'php') {
-					const workspaceEdit = new vscode.WorkspaceEdit();
-					try {
-						const edits = await formatProvider.provideDocumentFormattingEdits(
-							event.document,
-							{ insertSpaces: true, tabSize: 4 },
-							new vscode.CancellationTokenSource().token
-						);
-						
-						if (edits && edits.length > 0) {
-							workspaceEdit.set(event.document.uri, edits);
-							await vscode.workspace.applyEdit(workspaceEdit);
-						}
-					} catch (error) {
-						console.error('Format on save failed:', error);
-					}
-				}
-			})
-		);
-	}
-
 	// Register commands
 	context.subscriptions.push(
 		vscode.commands.registerCommand('phpFormatter.formatDocument', async () => {
@@ -337,6 +310,8 @@ export function activate(context: vscode.ExtensionContext) {
 			vscode.window.showInformationMessage('PHP Formatter cache cleared.');
 		})
 	);
+
+
 }
 
 export function deactivate() {

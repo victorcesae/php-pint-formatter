@@ -30,10 +30,12 @@ The extension provides several configuration options:
 ```json
 {
   "phpFormatter.enabled": true,
-  "phpFormatter.formatOnSave": true, 
   "phpFormatter.formatOnType": false,
   "phpFormatter.formatOnPaste": false,
-  "phpFormatter.timeout": 30000
+  "phpFormatter.timeout": 30000,
+  
+  // Use VS Code's built-in format on save
+  "editor.formatOnSave": true
 }
 ```
 
@@ -42,16 +44,24 @@ The extension provides several configuration options:
 | Setting | Type | Default | Description |
 |---------|------|---------|-------------|
 | `phpFormatter.enabled` | boolean | `true` | Enable/disable the PHP formatter |
-| `phpFormatter.formatOnSave` | boolean | `true` | Format PHP files on save |
 | `phpFormatter.formatOnType` | boolean | `false` | Format PHP files while typing |
 | `phpFormatter.formatOnPaste` | boolean | `false` | Format PHP files when pasting content |
 | `phpFormatter.timeout` | number | `30000` | Timeout in milliseconds for formatting operations |
+| `editor.formatOnSave` | boolean | `false` | VS Code's built-in format on save (recommended: `true`) |
 
 ## Usage
 
 ### Automatic Formatting
 
-By default, the extension will format your PHP files when you save them. This behavior can be controlled via the `phpFormatter.formatOnSave` setting.
+To enable format on save, use VS Code's built-in setting:
+
+```json
+{
+  "editor.formatOnSave": true
+}
+```
+
+This will automatically format your PHP files when you save them using our Laravel Pint formatter.
 
 ### Manual Formatting
 
